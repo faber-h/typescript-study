@@ -1,0 +1,43 @@
+/* 컴파일러 옵션 */
+{
+  "compilerOptions": {
+    /*
+     * target: 컴파일 결과 생성되는 자바스크립트 코드의 버전 설정
+     * - ESNext: 최신 버전의 자바스크립트로 변환
+     * - ES5: ES5 버전의 자바스크립트 코드로 변환
+     */
+    "target": "ESNext",
+    /*
+     * module: 변환되는 자바스크립트 코드의 모듈 시스템 설정
+     * - CommonJS: require 등의 CommonJS 문법으로 코드가 변환
+     * - ESNext: ES 모듈시스템
+     */
+    "module": "ESNext",
+    /*
+     * outDir: 컴파일 결과 생성할 자바스크립트 코드의 위치
+     */
+    "outDir": "dist",
+    /*
+     * strict: 컴파일러의 타입 검사 엄격함 여부
+     */
+    "strict": false,
+    /*
+     * strcitNullChecks: 컴파일러의 타입 검사 엄격함 여부
+     * strict 옵션의 하위 옵션
+     */
+    "strcitNullChecks": false,
+    /*
+     * moduleDetection: 모듈로 취급되도록 만들지 여부
+     * - force: 자동으로 모든 타입스크립트 파일이 로컬 모듈(독립 모듈)로 만듦
+     */
+    "moduleDetection": "force",
+    /*
+     * skipLibCheck: 타입 정의 파일(.d.ts 확장자를 갖는 파일)의 타입 검사를 생략하는 옵션
+     */
+    "skipLibCheck": true
+  },
+  /*
+   * include: 컴파일할 타입스크립트 파일의 범위와 위치를 알려주는 옵션
+   */
+  "include": ["src"]
+}
