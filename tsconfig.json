@@ -25,7 +25,7 @@
      * strcitNullChecks: 컴파일러의 타입 검사 엄격함 여부
      * strict 옵션의 하위 옵션
      */
-    "strcitNullChecks": false,
+    "strictNullChecks": false,
     /*
      * moduleDetection: 모듈로 취급되도록 만들지 여부
      * - force: 자동으로 모든 타입스크립트 파일이 로컬 모듈(독립 모듈)로 만듦
