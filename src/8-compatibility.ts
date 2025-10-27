@@ -1,3 +1,6 @@
+/*
+ * 타입 간의 호환성
+ */
 // Unknown 타입
 function unknownExam() {
   let unknownVar1: unknown = 10;
