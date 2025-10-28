@@ -84,6 +84,7 @@ let c: number & string; // let c: never; 과 같음
 // 배열 타입
 let d: (number & string)[]; // let d: never; 과 같음
 
+// 객체 타입
 type IntersectionType = Animal & Person;
 
 let intersection1: IntersectionType = {
