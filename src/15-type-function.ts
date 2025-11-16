@@ -73,3 +73,35 @@ function getSum2(...numbers: [number, number, number]) {
 }
 getSum2(1, 2, 3);
 // getSum2(1, 2, 3, 4); // 오류
+
+// 4. 함수 타입 표현식
+// 4-1. 타입 별칭 사용 O
+type Operation = (a: number, b: number) => number;
+const add: Operation = (a, b) => a + b;
+const sub: Operation = (a, b) => a - b;
+const multiply: Operation = (a, b) => a * b;
+const divide: Operation = (a, b) => a / b;
+
+// 4-2. 타입 별칭 사용 X
+const add0: (a: number, b: number) => number = (a, b) => a + b;
+
+// 5. 호출 시그니쳐
+// 5-1. 호출 시그니처 방식
+type Operation2 = {
+  (a: number, b: number): number;
+};
+const add2: Operation2 = (a, b) => a + b;
+const sub2: Operation2 = (a, b) => a - b;
+const multiply2: Operation2 = (a, b) => a * b;
+const divide2: Operation2 = (a, b) => a / b;
+
+// 5-2. 하이브리드 타입
+// 호출 시그니쳐 아래에 프로퍼티를 추가 가능하여
+// 함수이자 일반 객체를 의미하는 타입으로 정의됨
+type Operation3 = {
+  (a: number, b: number): number;
+  name: string;
+};
+const add3: Operation3 = (a, b) => a + b;
+add3(1, 2);
+add3.name;
