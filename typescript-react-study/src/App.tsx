@@ -8,9 +8,15 @@ function App() {
   // 가능하면 초기값을 넣어서 명확하게 타입을 추론시키는 것이 가장 권장
   const [text, setText] = useState("");
 
+  // 이벤트 핸들러 타입: React가 넘겨주는 이벤트 타입을 사용
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
   return (
     <div className="App">
       <h1>Todo</h1>
+      <input value={text} onChange={handleChange} />
     </div>
   );
 }
