@@ -1,0 +1,24 @@
+/* 컴파일러 옵션 */
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "outDir": "dist",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    /*
+     * esModuleInterop: CommonJS 방식의 라이브러리를 ES Module 방식처럼 import 할 수 있게 해줌
+     */
+    "esModuleInterop": true,
+    /*
+     * jsx: .tsx 파일이 JSX를 해석
+     * TypeScript는 JS/TS 코드만 파싱하지, JSX 문법까지 자동 해석하지 않기 때문에
+     * react + typescript 에서는 "jsx" 옵션이 필수
+     * - react: TS가 JSX를 바로 React.createElement로 변환
+     * - react-jsx: React 17+ Automatic JSX Transform(JSX 사용할 때 React import가 필요 없음) 활성화 옵션.
+     */
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
