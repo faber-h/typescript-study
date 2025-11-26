@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import Editor from "./components/Editor";
-
-interface Todo {
-  id: number;
-  content: string;
-}
+import TodoItem from "./components/TodoItem";
+// 공통 타입이 필요할 경우
+// import 키워드로 불러오기
+import { Todo } from "./types";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -32,6 +31,11 @@ function App() {
       <Editor handleClick={handleClick}>
         <div>child</div>
       </Editor>
+      <div>
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} {...todo} />
+        ))}
+      </div>
     </div>
   );
 }
