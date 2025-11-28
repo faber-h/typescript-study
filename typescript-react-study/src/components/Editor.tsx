@@ -3,7 +3,7 @@ import { useState, ReactElement } from "react";
 // 컴포넌트가 부모로부터 받는 props의 타입 정의
 interface Props {
   // 부모 컴포넌트에서 전달받는 함수 타입 지정
-  handleClick: (text: string) => void;
+  handleClickAdd: (text: string) => void;
 
   // children 타입 지정
   // 하나의 React 요소만 자식으로 받을 경우 ReactElement 사용
@@ -24,7 +24,7 @@ export default function Editor(props: Props) {
   };
 
   const handleClickButton = () => {
-    props.handleClick(text);
+    props.handleClickAdd(text);
     setText("");
   };
 

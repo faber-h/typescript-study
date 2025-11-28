@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import Editor from "./components/Editor";
 import TodoItem from "./components/TodoItem";
@@ -11,7 +11,7 @@ function App() {
 
   const idRef = useRef(0);
 
-  const handleClick = (text: string) => {
+  const handleClickAdd = (text: string) => {
     setTodos([
       ...todos,
       {
@@ -21,19 +21,23 @@ function App() {
     ]);
   };
 
-  useEffect(() => {
-    console.log(todos);
-  }, [todos]);
+  const handleClickDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
 
   return (
     <div className="App">
       <h1>Todo</h1>
-      <Editor handleClick={handleClick}>
+      <Editor handleClickAdd={handleClickAdd}>
         <div>child</div>
       </Editor>
       <div>
         {todos.map((todo) => (
-          <TodoItem key={todo.id} {...todo} />
+          <TodoItem
+            key={todo.id}
+            {...todo}
+            handleClickDelete={handleClickDelete}
+          />
         ))}
       </div>
     </div>
