@@ -1,9 +1,10 @@
 import { useState, ReactElement } from "react";
+import { useTodoDispatch } from "../App";
 
 // 컴포넌트가 부모로부터 받는 props의 타입 정의
 interface Props {
   // 부모 컴포넌트에서 전달받는 함수 타입 지정
-  handleClickAdd: (text: string) => void;
+  // handleClickAdd: (text: string) => void;
 
   // children 타입 지정
   // 하나의 React 요소만 자식으로 받을 경우 ReactElement 사용
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export default function Editor(props: Props) {
+  const dispatch = useTodoDispatch();
   // useState: 제네릭, 기본적으로 초기값을 보고 타입을 추론
   // 괄호를 비워두면 초기값이 없으므로 undefined로 추론
   // 제네릭을 직접 지정하면(useState<string>()) 해당 타입 + undefined 로 추론(string | undefined)
@@ -24,7 +26,7 @@ export default function Editor(props: Props) {
   };
 
   const handleClickButton = () => {
-    props.handleClickAdd(text);
+    dispatch.handleClickAdd(text);
     setText("");
   };
 

@@ -1,14 +1,15 @@
 import { Todo } from "../types";
+import { useTodoDispatch } from "../App";
 
 // 기존 타입 구조를 그대로 전달받아야 할 경우
 // extends 키워드로 확장
-interface Props extends Todo {
-  handleClickDelete: (id: number) => void;
-}
+interface Props extends Todo {}
 
 export default function TodoItem(props: Props) {
+  const dispatch = useTodoDispatch();
+
   const handleClickButton = () => {
-    props.handleClickDelete(props.id);
+    dispatch.handleClickDelete(props.id);
   };
 
   return (
